@@ -9,8 +9,6 @@
 /* Begin PBXBuildFile section */
 		BC87402B2C3B422C005E2441 /* FishIdentifierApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC87402A2C3B422C005E2441 /* FishIdentifierApp.swift */; };
 		BC87402D2C3B422C005E2441 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC87402C2C3B422C005E2441 /* ContentView.swift */; };
-		BC87402F2C3B422E005E2441 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BC87402E2C3B422E005E2441 /* Assets.xcassets */; };
-		BC8740322C3B422E005E2441 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BC8740312C3B422E005E2441 /* Preview Assets.xcassets */; };
 		BC87403C2C3B422E005E2441 /* FishIdentifierTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC87403B2C3B422E005E2441 /* FishIdentifierTests.swift */; };
 		BC8740462C3B422E005E2441 /* FishIdentifierUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8740452C3B422E005E2441 /* FishIdentifierUITests.swift */; };
 		BC8740482C3B422E005E2441 /* FishIdentifierUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8740472C3B422E005E2441 /* FishIdentifierUITestsLaunchTests.swift */; };
@@ -37,8 +35,6 @@
 		BC8740272C3B422C005E2441 /* FishIdentifier.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FishIdentifier.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BC87402A2C3B422C005E2441 /* FishIdentifierApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FishIdentifierApp.swift; sourceTree = "<group>"; };
 		BC87402C2C3B422C005E2441 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		BC87402E2C3B422E005E2441 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		BC8740312C3B422E005E2441 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		BC8740372C3B422E005E2441 /* FishIdentifierTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FishIdentifierTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BC87403B2C3B422E005E2441 /* FishIdentifierTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FishIdentifierTests.swift; sourceTree = "<group>"; };
 		BC8740412C3B422E005E2441 /* FishIdentifierUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FishIdentifierUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -74,13 +70,7 @@
 		BC87401E2C3B422C005E2441 = {
 			isa = PBXGroup;
 			children = (
-				BC87405A2C3B439F005E2441 /* Services */,
-				BC8740592C3B4395005E2441 /* Utilities */,
-				BC8740572C3B4382005E2441 /* Controllers */,
-				BC8740562C3B4357005E2441 /* Views */,
-				BC8740552C3B4351005E2441 /* Models */,
-				BC8740542C3B4343005E2441 /* Resources */,
-				BC8740292C3B422C005E2441 /* FishIdentifier */,
+				BC8740612C3B487B005E2441 /* FishIdentifier */,
 				BC87403A2C3B422E005E2441 /* FishIdentifierTests */,
 				BC8740442C3B422E005E2441 /* FishIdentifierUITests */,
 				BC8740282C3B422C005E2441 /* Products */,
@@ -95,25 +85,6 @@
 				BC8740412C3B422E005E2441 /* FishIdentifierUITests.xctest */,
 			);
 			name = Products;
-			sourceTree = "<group>";
-		};
-		BC8740292C3B422C005E2441 /* FishIdentifier */ = {
-			isa = PBXGroup;
-			children = (
-				BC87402A2C3B422C005E2441 /* FishIdentifierApp.swift */,
-				BC87402C2C3B422C005E2441 /* ContentView.swift */,
-				BC87402E2C3B422E005E2441 /* Assets.xcassets */,
-				BC8740302C3B422E005E2441 /* Preview Content */,
-			);
-			path = FishIdentifier;
-			sourceTree = "<group>";
-		};
-		BC8740302C3B422E005E2441 /* Preview Content */ = {
-			isa = PBXGroup;
-			children = (
-				BC8740312C3B422E005E2441 /* Preview Assets.xcassets */,
-			);
-			path = "Preview Content";
 			sourceTree = "<group>";
 		};
 		BC87403A2C3B422E005E2441 /* FishIdentifierTests */ = {
@@ -150,15 +121,9 @@
 		BC8740562C3B4357005E2441 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				BC87402C2C3B422C005E2441 /* ContentView.swift */,
 			);
 			path = Views;
-			sourceTree = "<group>";
-		};
-		BC8740572C3B4382005E2441 /* Controllers */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Controllers;
 			sourceTree = "<group>";
 		};
 		BC8740592C3B4395005E2441 /* Utilities */ = {
@@ -173,6 +138,35 @@
 			children = (
 			);
 			path = Services;
+			sourceTree = "<group>";
+		};
+		BC87405F2C3B4707005E2441 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		BC8740602C3B4835005E2441 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		BC8740612C3B487B005E2441 /* FishIdentifier */ = {
+			isa = PBXGroup;
+			children = (
+				BC8740602C3B4835005E2441 /* Preview Content */,
+				BC87402A2C3B422C005E2441 /* FishIdentifierApp.swift */,
+				BC87405F2C3B4707005E2441 /* ViewModels */,
+				BC87405A2C3B439F005E2441 /* Services */,
+				BC8740592C3B4395005E2441 /* Utilities */,
+				BC8740562C3B4357005E2441 /* Views */,
+				BC8740552C3B4351005E2441 /* Models */,
+				BC8740542C3B4343005E2441 /* Resources */,
+			);
+			path = FishIdentifier;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -279,8 +273,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BC8740322C3B422E005E2441 /* Preview Assets.xcassets in Resources */,
-				BC87402F2C3B422E005E2441 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
