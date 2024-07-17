@@ -42,6 +42,7 @@
 		BC8740412C3B422E005E2441 /* FishIdentifierUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FishIdentifierUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BC8740452C3B422E005E2441 /* FishIdentifierUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FishIdentifierUITests.swift; sourceTree = "<group>"; };
 		BC8740472C3B422E005E2441 /* FishIdentifierUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FishIdentifierUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		BC8E9EC52C46FA5F00919A38 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -154,12 +155,14 @@
 			isa = PBXGroup;
 			children = (
 			);
-			path = "Preview Content";
-			sourceTree = "<group>";
+			name = "Preview Content";
+			path = "/Users/derekhessinger/Documents/apps/FishIdentifier/FishIdentifier/Preview Content";
+			sourceTree = "<absolute>";
 		};
 		BC8740612C3B487B005E2441 /* FishIdentifier */ = {
 			isa = PBXGroup;
 			children = (
+				BC8E9EC52C46FA5F00919A38 /* Info.plist */,
 				BC8740602C3B4835005E2441 /* Preview Content */,
 				BC87402A2C3B422C005E2441 /* FishIdentifierApp.swift */,
 				BC87405F2C3B4707005E2441 /* ViewModels */,
@@ -465,9 +468,11 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"FishIdentifier/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = FishIdentifier/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "Camera will be used to take a picture of the fish";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -493,9 +498,11 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"FishIdentifier/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = FishIdentifier/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "Camera will be used to take a picture of the fish";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

@@ -1,31 +1,34 @@
 import SwiftUI
+import AVFoundation
+import UIKit
 
 struct ContentView: View {
     @State private var showImagePicker = false
     @State private var sourceType: UIImagePickerController.SourceType = .photoLibrary
     @State private var selectedImage: UIImage?
+    @State private var showAlert = false
+    @State private var alertMessage = ""
 
     var body: some View {
         ZStack {
-            Color(red: 0.2, green: 0.7, blue: 1.0) // Light blue background
+            Color(red: 0.2, green: 0.7, blue: 1.0)
                 .edgesIgnoringSafeArea(.all)
-            
+
             VStack(spacing: 20) {
                 Text("FishIdentifier")
                     .font(.system(size: 36, weight: .bold, design: .default))
                     .italic()
                     .padding()
-                
+
                 if let image = selectedImage {
                     Image(uiImage: image)
                         .resizable()
                         .scaledToFit()
                         .frame(height: 300)
                 }
-                
+
                 Button(action: {
-                    self.sourceType = .camera
-                    self.showImagePicker = true
+                    checkCameraAccess()
                 }) {
                     HStack {
                         Image(systemName: "camera")
@@ -37,7 +40,7 @@ struct ContentView: View {
                     .foregroundColor(.white)
                     .cornerRadius(10)
                 }
-                
+
                 Button(action: {
                     self.sourceType = .photoLibrary
                     self.showImagePicker = true
@@ -52,16 +55,69 @@ struct ContentView: View {
                     .foregroundColor(.white)
                     .cornerRadius(10)
                 }
+                
+                Button(action: {
+                    selectedImage=nil
+                }){
+                    HStack{
+                        Image(systemName: "trash")
+                        Text("Remove image")
+                    }
+                    .frame(minWidth: 0, maxWidth: .infinity)
+                    .padding()
+                    .background(Color.red)
+                    .foregroundColor(.white)
+                    .cornerRadius(10)
+                }
+                
             }
             .padding()
         }
         .sheet(isPresented: $showImagePicker) {
             ImagePicker(sourceType: self.sourceType, selectedImage: self.$selectedImage)
         }
+        .alert(isPresented: $showAlert) {
+            Alert(title: Text("Camera Access"), message: Text(alertMessage), dismissButton: .default(Text("OK")))
+        }
+    }
+
+    func checkCameraAccess() {
+        print("Checking camera access...")
+        switch AVCaptureDevice.authorizationStatus(for: .video) {
+        case .authorized:
+            print("Camera access authorized.")
+            self.sourceType = .camera
+            self.showImagePicker = true
+        case .notDetermined:
+            print("Camera access not determined. Requesting access...")
+            AVCaptureDevice.requestAccess(for: .video) { granted in
+                if granted {
+                    print("Camera access granted.")
+                    DispatchQueue.main.async {
+                        self.sourceType = .camera
+                        self.showImagePicker = true
+                    }
+                } else {
+                    print("Camera access denied.")
+                    self.showCameraAccessDeniedAlert()
+                }
+            }
+        case .denied, .restricted:
+            print("Camera access denied or restricted.")
+            self.showCameraAccessDeniedAlert()
+        @unknown default:
+            print("Unknown camera access status.")
+            self.showCameraAccessDeniedAlert()
+        }
+    }
+
+    func showCameraAccessDeniedAlert() {
+        DispatchQueue.main.async {
+            self.alertMessage = "Camera access is denied. Please enable it in Settings to use this feature."
+            self.showAlert = true
+        }
     }
 }
-
-// Keep the ImagePicker struct as it was in the previous example
 
 struct ImagePicker: UIViewControllerRepresentable {
     var sourceType: UIImagePickerController.SourceType
@@ -94,13 +150,15 @@ struct ImagePicker: UIViewControllerRepresentable {
             }
             parent.presentationMode.wrappedValue.dismiss()
         }
+
+        func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+            parent.presentationMode.wrappedValue.dismiss()
+        }
     }
 }
 
-
-
-struct ContentView_Previews: PreviewProvider{
-    static var previews: some View{
+struct ContentView_Previews: PreviewProvider {
+    static var previews: some View {
         ContentView()
     }
 }
