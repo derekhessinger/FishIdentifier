@@ -14,7 +14,7 @@ struct ContentView: View {
     @State private var alertMessage = ""
     @State private var inputImage: UIImage?
     @State private var predictionResult: String = ""
-    @State private var labelText: String = "Select Image"
+    @State private var labelText: String = "Select an image below"
 
 
     var body: some View {
@@ -84,6 +84,7 @@ struct ContentView: View {
                 Button(action: {
                     selectedImage = nil
                     predictionResult = ""  // Clear the prediction when image is removed
+                    labelText = ""
                 }){
                     HStack{
                         Image(systemName: "trash")

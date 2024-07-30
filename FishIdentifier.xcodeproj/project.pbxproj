@@ -21,6 +21,9 @@
 		BCAC32072C5870020085810D /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCAC32062C5870020085810D /* Extensions.swift */; };
 		BCAC32082C5870020085810D /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCAC32062C5870020085810D /* Extensions.swift */; };
 		BCAC32092C5870020085810D /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCAC32062C5870020085810D /* Extensions.swift */; };
+		BCC10E5E2C59646700473AE5 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BCC10E5D2C59646700473AE5 /* Media.xcassets */; };
+		BCC10E5F2C59646700473AE5 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BCC10E5D2C59646700473AE5 /* Media.xcassets */; };
+		BCC10E602C59646700473AE5 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BCC10E5D2C59646700473AE5 /* Media.xcassets */; };
 		DBA7F98040A018A63BBD6B1C /* Pods_FishIdentifier_FishIdentifierUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2096B5892C223DDD2DDD815B /* Pods_FishIdentifier_FishIdentifierUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -61,6 +64,7 @@
 		BC8E9EC52C46FA5F00919A38 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		BCAC32022C586DC60085810D /* Fish.mlpackage */ = {isa = PBXFileReference; lastKnownFileType = folder.mlpackage; name = Fish.mlpackage; path = ../../../../../Downloads/Fish.mlpackage; sourceTree = "<group>"; };
 		BCAC32062C5870020085810D /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		BCC10E5D2C59646700473AE5 /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
 		DE34E9F9754C0045879E1031 /* Pods-FishIdentifierTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FishIdentifierTests.release.xcconfig"; path = "Target Support Files/Pods-FishIdentifierTests/Pods-FishIdentifierTests.release.xcconfig"; sourceTree = "<group>"; };
 		F3D3D178D75DED15DCBDBC27 /* Pods-FishIdentifier-FishIdentifierUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FishIdentifier-FishIdentifierUITests.release.xcconfig"; path = "Target Support Files/Pods-FishIdentifier-FishIdentifierUITests/Pods-FishIdentifier-FishIdentifierUITests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -145,13 +149,6 @@
 			path = FishIdentifierUITests;
 			sourceTree = "<group>";
 		};
-		BC8740542C3B4343005E2441 /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Resources;
-			sourceTree = "<group>";
-		};
 		BC8740552C3B4351005E2441 /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -202,6 +199,7 @@
 		BC8740612C3B487B005E2441 /* FishIdentifier */ = {
 			isa = PBXGroup;
 			children = (
+				BCC10E612C59647200473AE5 /* Resources */,
 				BC8E9EC52C46FA5F00919A38 /* Info.plist */,
 				BC8740602C3B4835005E2441 /* Preview Content */,
 				BC87402A2C3B422C005E2441 /* FishIdentifierApp.swift */,
@@ -210,9 +208,16 @@
 				BC8740592C3B4395005E2441 /* Utilities */,
 				BC8740562C3B4357005E2441 /* Views */,
 				BC8740552C3B4351005E2441 /* Models */,
-				BC8740542C3B4343005E2441 /* Resources */,
 			);
 			path = FishIdentifier;
+			sourceTree = "<group>";
+		};
+		BCC10E612C59647200473AE5 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				BCC10E5D2C59646700473AE5 /* Media.xcassets */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 		E3BF342F9704D20D35B101AE /* Frameworks */ = {
@@ -332,6 +337,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BCC10E5E2C59646700473AE5 /* Media.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -339,6 +345,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BCC10E5F2C59646700473AE5 /* Media.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -346,6 +353,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BCC10E602C59646700473AE5 /* Media.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
