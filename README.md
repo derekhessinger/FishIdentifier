@@ -1,6 +1,12 @@
 # Fish Identifier 🐟
 iOS app to analzye common fish species in North America.
 
+<div style="display: flex; justify-content: space-between;">
+  <img src="FishIdentifier/Resources/screenshot_0.PNG" alt="homepage" style="width:15%; height:auto; margin-right: 10px;">
+  <img src="FishIdentifier/Resources/screenshot_1.PNG" alt="homepage" style="width:15%; height:auto;">
+</div>
+
+
 ## Model Development
 - The FishIdentifier classification model was trained on top of MobileNetV3Large in Tensorflow
 - Images were sourced using the iNaturalist API
