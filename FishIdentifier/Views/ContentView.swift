@@ -84,7 +84,7 @@ struct ContentView: View {
                 Button(action: {
                     selectedImage = nil
                     predictionResult = ""  // Clear the prediction when image is removed
-                    labelText = ""
+                    labelText = "Select an image below"
                 }){
                     HStack{
                         Image(systemName: "trash")
