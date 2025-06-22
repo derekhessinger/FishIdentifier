@@ -41,10 +41,32 @@ struct ContentView: View {
                 
 
                 if let image = selectedImage {
-                    Image(uiImage: image)
-                        .resizable()
-                        .scaledToFit()
-                        .frame(height: 300)
+                    VStack(spacing: 8) {
+                        Image(uiImage: image)
+                            .resizable()
+                            .scaledToFit()
+                            .frame(height: 300)
+                            .cornerRadius(12)
+                            .shadow(radius: 4)
+                        
+                        Button(action: {
+                            selectedImage = nil
+                            predictionResult = ""
+                            labelText = "Select an image below"
+                            topPrediction = nil
+                        }) {
+                            HStack {
+                                Image(systemName: "trash")
+                                Text("Remove Image")
+                            }
+                            .font(.caption)
+                            .foregroundColor(.red)
+                            .padding(.horizontal, 12)
+                            .padding(.vertical, 6)
+                            .background(Color.white.opacity(0.9))
+                            .cornerRadius(8)
+                        }
+                    }
                 }
 
                 if !predictionResult.isEmpty {
@@ -78,50 +100,35 @@ struct ContentView: View {
                     }
                 }
 
-                Button(action: {
-                    checkCameraAccess()
-                }) {
-                    HStack {
-                        Image(systemName: "camera")
-                        Text("Take a Picture")
+                HStack(spacing: 16) {
+                    Button(action: {
+                        checkCameraAccess()
+                    }) {
+                        HStack {
+                            Image(systemName: "camera")
+                            Text("Camera")
+                        }
+                        .frame(maxWidth: .infinity)
+                        .padding()
+                        .background(Color.blue)
+                        .foregroundColor(.white)
+                        .cornerRadius(10)
                     }
-                    .frame(minWidth: 0, maxWidth: .infinity)
-                    .padding()
-                    .background(Color.blue)
-                    .foregroundColor(.white)
-                    .cornerRadius(10)
-                }
-
-                Button(action: {
-                    self.sourceType = .photoLibrary
-                    self.showImagePicker = true
-                }) {
-                    HStack {
-                        Image(systemName: "photo.on.rectangle")
-                        Text("Select a Picture")
+                    
+                    Button(action: {
+                        self.sourceType = .photoLibrary
+                        self.showImagePicker = true
+                    }) {
+                        HStack {
+                            Image(systemName: "photo.on.rectangle")
+                            Text("Gallery")
+                        }
+                        .frame(maxWidth: .infinity)
+                        .padding()
+                        .background(Color.green)
+                        .foregroundColor(.white)
+                        .cornerRadius(10)
                     }
-                    .frame(minWidth: 0, maxWidth: .infinity)
-                    .padding()
-                    .background(Color.green)
-                    .foregroundColor(.white)
-                    .cornerRadius(10)
-                }
-                
-                Button(action: {
-                    selectedImage = nil
-                    predictionResult = ""  // Clear the prediction when image is removed
-                    labelText = "Select an image below"
-                    topPrediction = nil
-                }){
-                    HStack{
-                        Image(systemName: "trash")
-                        Text("Remove image")
-                    }
-                    .frame(minWidth: 0, maxWidth: .infinity)
-                    .padding()
-                    .background(Color.red)
-                    .foregroundColor(.white)
-                    .cornerRadius(10)
                 }
             }
             .padding()
