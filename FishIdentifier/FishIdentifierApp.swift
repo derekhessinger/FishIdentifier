@@ -11,7 +11,8 @@ import SwiftUI
 struct FishIdentifierApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            MainTabView()
+                .environmentObject(FishTrackingManager.shared)
         }
     }
 }

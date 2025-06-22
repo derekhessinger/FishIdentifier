@@ -15,6 +15,8 @@ struct ContentView: View {
     @State private var inputImage: UIImage?
     @State private var predictionResult: String = ""
     @State private var labelText: String = "Select an image below"
+    @State private var topPrediction: (String, Double)? = nil
+    @EnvironmentObject var trackingManager: FishTrackingManager
 
 
     var body: some View {
@@ -51,6 +53,30 @@ struct ContentView: View {
                         .background(Color.white)
                         .cornerRadius(10)
                 }
+                
+                if let topPrediction = topPrediction, selectedImage != nil {
+                    Button(action: {
+                        trackingManager.addCaughtFish(
+                            species: topPrediction.0,
+                            confidence: topPrediction.1,
+                            image: selectedImage
+                        )
+                        
+                        // Show confirmation
+                        alertMessage = "Fish saved to your catches!"
+                        showAlert = true
+                    }) {
+                        HStack {
+                            Image(systemName: "plus.circle.fill")
+                            Text("Save This Catch")
+                        }
+                        .frame(minWidth: 0, maxWidth: .infinity)
+                        .padding()
+                        .background(Color.orange)
+                        .foregroundColor(.white)
+                        .cornerRadius(10)
+                    }
+                }
 
                 Button(action: {
                     checkCameraAccess()
@@ -85,6 +111,7 @@ struct ContentView: View {
                     selectedImage = nil
                     predictionResult = ""  // Clear the prediction when image is removed
                     labelText = "Select an image below"
+                    topPrediction = nil
                 }){
                     HStack{
                         Image(systemName: "trash")
@@ -245,6 +272,7 @@ struct ContentView: View {
             print(predictionText)
             DispatchQueue.main.async {
                     self.labelText = predictionText
+                    self.topPrediction = top3Predictions.first
                     print("Updated labelText: \(self.labelText)")
                 }
         }
