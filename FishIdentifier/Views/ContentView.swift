@@ -24,30 +24,33 @@ struct ContentView: View {
             Color(red: 0.2, green: 0.7, blue: 1.0)
                 .edgesIgnoringSafeArea(.all)
 
-            VStack(spacing: 20) {
+            VStack(spacing: 24) {
                 Text("FishIdentifier")
                     .font(.system(size: 36, weight: .bold, design: .default))
                     .italic()
-                    .padding()
+                    .padding(.top, 8)
+                    .padding(.bottom, 16)
                 
                 Text(labelText)
-                        .multilineTextAlignment(.center)
-                        .padding()
-                        .frame(minWidth: 200, minHeight: 100)
-                        .background(Color.white)
-                        .cornerRadius(10)
-                        .foregroundColor(.blue)
+                    .multilineTextAlignment(.center)
+                    .padding(.horizontal, 20)
+                    .padding(.vertical, 16)
+                    .frame(minWidth: 200, minHeight: 100)
+                    .background(Color.white)
+                    .cornerRadius(12)
+                    .foregroundColor(.blue)
+                    .shadow(color: .black.opacity(0.1), radius: 2, x: 0, y: 1)
                     
                 
 
                 if let image = selectedImage {
-                    VStack(spacing: 8) {
+                    VStack(spacing: 12) {
                         Image(uiImage: image)
                             .resizable()
                             .scaledToFit()
                             .frame(height: 300)
                             .cornerRadius(12)
-                            .shadow(radius: 4)
+                            .shadow(color: .black.opacity(0.2), radius: 4, x: 0, y: 2)
                         
                         Button(action: {
                             selectedImage = nil
@@ -55,25 +58,31 @@ struct ContentView: View {
                             labelText = "Select an image below"
                             topPrediction = nil
                         }) {
-                            HStack {
+                            HStack(spacing: 6) {
                                 Image(systemName: "trash")
                                 Text("Remove Image")
                             }
                             .font(.caption)
                             .foregroundColor(.red)
-                            .padding(.horizontal, 12)
-                            .padding(.vertical, 6)
+                            .padding(.horizontal, 16)
+                            .padding(.vertical, 8)
                             .background(Color.white.opacity(0.9))
                             .cornerRadius(8)
+                            .shadow(color: .black.opacity(0.1), radius: 1, x: 0, y: 1)
                         }
                     }
+                    .padding(.bottom, 8)
                 }
 
                 if !predictionResult.isEmpty {
-                    Text("Prediction: \(predictionResult)")
-                        .padding()
+                    Text(predictionResult)
+                        .multilineTextAlignment(.center)
+                        .padding(.horizontal, 20)
+                        .padding(.vertical, 16)
                         .background(Color.white)
-                        .cornerRadius(10)
+                        .cornerRadius(12)
+                        .shadow(color: .black.opacity(0.1), radius: 2, x: 0, y: 1)
+                        .padding(.horizontal, 8)
                 }
                 
                 if let topPrediction = topPrediction, selectedImage != nil {
@@ -88,16 +97,19 @@ struct ContentView: View {
                         alertMessage = "Fish saved to your catches!"
                         showAlert = true
                     }) {
-                        HStack {
+                        HStack(spacing: 8) {
                             Image(systemName: "plus.circle.fill")
                             Text("Save This Catch")
                         }
                         .frame(minWidth: 0, maxWidth: .infinity)
-                        .padding()
+                        .padding(.horizontal, 20)
+                        .padding(.vertical, 14)
                         .background(Color.orange)
                         .foregroundColor(.white)
-                        .cornerRadius(10)
+                        .cornerRadius(12)
+                        .shadow(color: .black.opacity(0.2), radius: 3, x: 0, y: 2)
                     }
+                    .padding(.horizontal, 8)
                 }
 
                 HStack(spacing: 16) {
@@ -131,7 +143,8 @@ struct ContentView: View {
                     }
                 }
             }
-            .padding()
+            .padding(.horizontal, 20)
+            .padding(.vertical, 16)
         }
         .sheet(isPresented: $showImagePicker) {
             ImagePicker(sourceType: self.sourceType, selectedImage: self.$selectedImage, predictFish: self.predictFish(image:))
